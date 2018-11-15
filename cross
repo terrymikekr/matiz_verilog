@@ -1,0 +1,12 @@
+#!/bin/bash
+# make the assembly file from gdb.
+
+if [ -f gdb.txt ]; then
+	rm -rf gdb.txt
+fi
+
+gcc main.c -o main.out
+
+gdb -q main.out -ex 'set logging on' -ex 'disas main' -ex 'quit'
+
+
